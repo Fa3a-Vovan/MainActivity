@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
                 try {
                     Entity entity = transform.stringToInts(textRead.getText().toString());
                     result.setText(logic.howManyRootsHaveEquation(entity));
-                } catch (Exception e) {
+                } catch (ArithmeticException e) {
                     textRead.setText("неправильный формат");
                 }
             }

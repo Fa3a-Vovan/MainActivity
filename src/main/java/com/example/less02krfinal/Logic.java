@@ -1,19 +1,15 @@
 package com.example.less02krfinal;
 
 public class Logic {
-    String howManyRootsHaveEquation(Entity entity) {
+    String howManyRootsHaveEquation(Entity entity) throws ArithmeticException {
         entity.setD((entity.getB() * entity.getB() - (4 * entity.getA() * entity.getC())));
 
         if (entity.getD() < 0) {
             return "уравнение не имеет корней";
-        } else try {
-            if (entity.getD() == 0) {
-                return "Уравнение имеет один корень:\n" + oneX(entity);
-            } else {
-                return "Уравнение имеет два корня:\n" + twoX(entity);
-            }
-        } catch (ArithmeticException e) {
-            return "Деление на ноль";
+        } else if (entity.getD() == 0) {
+            return "Уравнение имеет один корень:\n" + oneX(entity);
+        } else {
+            return "Уравнение имеет два корня:\n" + twoX(entity);
         }
     }
 
