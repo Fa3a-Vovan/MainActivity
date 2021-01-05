@@ -2,6 +2,7 @@ package com.example.less02krfinal;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -27,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
         TransformData transform = new TransformData();
         Logic logic = new Logic();
         View.OnClickListener listener = new View.OnClickListener() {
+            @SuppressLint("SetTextI18n")
             @Override
             public void onClick(View v) {
                 try {
@@ -34,7 +36,9 @@ public class MainActivity extends AppCompatActivity {
                     result.setText(logic.howManyRootsHaveEquation(entity));
                 } catch (ArithmeticException e) {
                     textRead.setText("неправильный формат");
-                }
+                } catch (IndexOutOfBoundsException e) {
+                    textRead.setText("Неверное количество переменных");
+                }catch (NumberFormatException e){textRead.setText("NumberFormatException");}
             }
         };
         button.setOnClickListener(listener);
