@@ -38,7 +38,11 @@ public class MainActivity extends AppCompatActivity {
                     textRead.setText("неправильный формат");
                 } catch (IndexOutOfBoundsException e) {
                     textRead.setText("Неверное количество переменных");
-                }catch (NumberFormatException e){textRead.setText("NumberFormatException");}
+                } catch (NumberFormatException e) {
+                    textRead.setText("NumberFormatException");
+                } catch (Exception e) {
+                    textRead.setText("неизвестное исключение");
+                }
             }
         };
         button.setOnClickListener(listener);
